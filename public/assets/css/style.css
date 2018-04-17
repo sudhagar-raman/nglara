@@ -1,0 +1,124 @@
+.row-banner{
+	background-color: #072f48;padding: 10px;
+}
+
+.border-smooth{
+	/*box-shadow: 0px 0px 8px grey !important;*/
+	border: 0px solid #ccc;
+	border-radius: 2px;
+}
+
+.team-title{
+	margin-top: -20px !important; 
+	margin-left: 4px !important;
+	font-size: 12px;
+	color: #cccccc;
+}
+
+.team-title:hover{
+	color: #000000;
+}
+
+img.thumbnail:hover ~ p.team-title{
+	color: #000000;
+}
+
+.team-list{
+	cursor: pointer;
+	margin-right: 15px !important;
+	padding: 10px !important;
+}
+
+.team-thumbnail{
+	margin-right: 5px; width: 90%;
+}
+
+.verticle-line {
+    border-left: 3px solid #072f48;
+    height: 600px;
+    position: absolute;
+    left: 17%;
+    margin-left: -3px;
+    top: 30;
+}
+
+.verticle-right-line{
+	border-left: 3px solid #072f48;
+    height: 600px;
+    position: absolute;
+    left: 17%;
+    margin-left: 700px;
+    top: 30;
+}
+
+.text{
+	vertical-align: middle;width: 20%;
+}
+
+.table-data{
+    width: 80% !important;
+    font-size: 12px !important;
+}
+
+
+/* SLider */
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.optionlist{
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    font-size: 12px;
+    z-index: 1000;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    padding: 5px 0 0 10px;
+    margin: 2px 0 0;
+    float: left;
+    min-width: 160px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.sliderpanel{
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    padding-bottom: 20px;
+    z-index: 1000;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+}

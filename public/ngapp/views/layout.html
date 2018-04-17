@@ -1,0 +1,21 @@
+<div class="row">
+	<!-- BEGIN LEFT PANEL -->
+	<div class="col-md-2">
+		<div class="list-group">
+		  <a href="#!team" class="list-group-item list-group-item-action">Home</a>
+		</div>
+	</div>
+	<!-- END LEFT PANEL -->
+	<div class="verticle-line"></div>
+	<!-- BEGIN MAIN CONTENT -->
+	<div class="col-md-7 border-smooth">
+		<ng-view></ng-view>
+	</div>
+	<!-- END MAIN CONTENT -->
+	<div class="verticle-right-line"></div>
+	<!-- BEGIN RIGHT PANEL -->
+	<div class="col-md-2" style="margin-left: -70px;">
+		<div ng-include="'ngapp/views/filters.html'"></div>
+	</div>
+	<!-- END RIGHT PANEL -->
+</div>
