@@ -1,27 +1,31 @@
-<div class="container-fuild filterpanel" ng-controller="HomeController as home">
+<div class="container-fuild filterpanel">
 	<div class="row">
 		<div class="col-md-12">
 			<h4>Storage</h4>
 				 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
 		</div>
+		<!-- {{serverList}} -->
 	</div>
 	<hr>
 	<div class="row">
 		<div class="col-md-12">
 			<!-- <div class="optionlist" > -->
 				<h4>Ram</h4>
-			  <span ng-repeat="item in home.optionsList">
-			    <input type="checkbox" checklist-model="home.selected.list" checklist-value="item"> {{item}}
-			  </span>  
+			<div class="">
+				<span class="ram-list" ng-repeat="item in optionsList">
+			    <input type="checkbox" checklist-model="request.ram" checklist-value="item">{{item}}
+			  </span>
+			</div>
+			    
 			<!-- </div> -->
 		</div>
 	</div>
 	<hr>
 	<div class="row">
 		<div class="col-md-12">
-			<h4>Hard Disk</h4>
-			<select ng-model="selectedHDD" ng-options="item for item in home.hdd">
-				<option>Select</option>
+			<h4>Hard Disk Type</h4>
+			<select class="form-group" ng-model="request.hdd" ng-options="item for item in hdd">
+				
 			</select>
 		</div>
 	</div>
@@ -29,9 +33,18 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h4>Location</h4>
-			<select ng-model="selectedLocation" ng-options="item for item in home.locations">
+			<select class="form-group" ng-model="request.location" ng-options="item for item in locations">
 				<option>Select</option>
 			</select>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-12 text-right">
+			<button type="reset" class="btn btn-default btn-sm" ng-click="getServerList()">
+	          <span class="glyphicon glyphicon-refresh"></span>Reset
+	        </button>
+			<button type="button" class="btn btn-primary" ng-click="applyFilters(request)">Apply</button>
 		</div>
 	</div>
 </div>
