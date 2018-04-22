@@ -1,5 +1,10 @@
 <?php
 
+/**
+*  
+*@author sudhagar raman
+*/
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -10,17 +15,17 @@ class Server extends Model
     protected $fillable = array('id', 'model', 'ram', 'hdd', 'location', 'price');
 
     /**
-      Get all server 
-      @return Array of object
+     * Get all server 
+     * @return Array of object
     */
     public static function getAllServers(){
     	return Server::orderBy('id', 'asc')->take(20)->get();
     }
 
     /**
-      Get server list based on the filter parameters
-      $params - array
-      @return Array of object
+     * Get server list based on the filter parameters
+     * $params - array
+     * @return Array of object
     */
     public static function getServerByFilters($params){
       $hdd = $params['hdd'] ?? null;
