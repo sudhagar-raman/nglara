@@ -15,12 +15,19 @@ class Servers extends Controller
 	* Dislay the list of servers
 	*
 	*@return response
-	*/
-	public function index($id = null){
-		if($id == null){
-			return Server::orderBy('id', 'asc')->take(15)->get();
-		}else{
-			return $this->show($id);
-		}
+	*/ 
+	public function index(){
+		return Server::getAllServers();
+	}
+
+	/**
+	* Dislay the list of servers by filters
+	*
+	*@return response
+	*/ 
+	public function filterServers(){
+		$req = request()->all();
+		return Server::getServerByFilters($req);
+		
 	}
 }
