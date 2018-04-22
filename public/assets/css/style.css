@@ -137,3 +137,10 @@ input[type=checkbox], input[type=radio] {
     background-color: #072f48 !important;
     border-color: #072f48 !important;
 }
+
+.logo{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px
+}
