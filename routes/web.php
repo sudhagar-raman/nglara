@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/api/v1/serverlist', 'Servers@index');
+Route::post('/api/v1/filter', 'Servers@filterServers');
