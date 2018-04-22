@@ -3,52 +3,75 @@
 	
 	angular.module("leaseWeb").controller("HomeController", HomeController);
 	
-	HomeController.$inject = ['ServersService'];
+	HomeController.$inject = ['ServersService', '$scope', '$timeout'];
 	
-	function HomeController(ServersService){
+	function HomeController(ServersService, $scope, $timeout){
 
-		var vm = this;
-		vm.serverList = [];
+		//var vm = this;
+		//$scope.serverList = [];
+		$scope.request = {};
+		//$scope.object = {};
+		//$scope.progressbar = 'Retreiving data please wait...';
 
 		// Initial method to populate the default
-		vm.init = function(){
-			vm.title = 'Home page';
-			vm.getServerList();
-			vm.filterRam();
-			vm.fliterHdd();
-			vm.filterLocation();
+		$scope.init = function(){
+			$scope.title = 'Home page';
+			$scope.no_data = 'No data found';
+
+			//$scope.getServerList();
+			$scope.filterRam();
+			$scope.fliterHdd();
+			$scope.filterLocation();
 		}
 
 		// Get all servers
-		vm.getServerList = function(){
+		$scope.getServerList = function(){
+			$scope.request.location = '';
+			$scope.request.hdd = '';
+			$scope.request.ram = '';
+
 			ServersService.getServerList(function(response){
-				vm.serverList = response;
-				console.log(response);
+				$scope.object = {serverList:response};
+				$scope.progressbar = '';
 			}, function(error){
 				 console.log("Error : Unable to get server list.")
 			})
 		}
 
 		// Filter data
-		vm.filterRam = function(){
-			vm.optionsList = ["2GB", "4GB","8GB","12GB","16GB","24GB","32GB","48GB", "64GB", "96GB"];
-			vm.selected = {
-			    list: ['option1']
-			  };
+		$scope.filterRam = function(){
+			$scope.optionsList = ["2GB", "4GB","8GB","12GB","16GB","24GB","32GB","48GB", "64GB", "96GB"];
+			
 		}
 
-		vm.fliterHdd = function(){
-			vm.hdd = ["SAS", "SATA", "SSD"]
+		$scope.fliterHdd = function(){
+			$scope.hdd = ["SAS", "SATA2", "SSD"]
 		}
 
-		vm.filterLocation = function(){
-			vm.locations = ["AmsterdamAMS-01", "Washington D.C.WDC-01", "San FranciscoSFO-12",
-							"SingaporeSIN-12", "DallasDAL-10", "FrankfurtFRA-10", "Hong KongHKG-01"
+		$scope.filterLocation = function(){
+			$scope.locations = ["AmsterdamAMS-01", "Washington D.C.WDC-01", "San FranciscoSFO-12",
+							"SingaporeSIN-11", "DallasDAL-10", "FrankfurtFRA-10", "Hong KongHKG-01"
 							]
 		}
 
+		$scope.applyFilters = function(requestParams){
+			$scope.progressbar = 'Retreiving data please wait...';
+			$scope.object = {serverList:null};
 
-		vm.init();
+			ServersService.applyFilters(requestParams, function(response){
+				if(response.length <= 0){
+					$scope.progressbar = $scope.no_data;
+				}else{
+					$scope.progressbar = '';
+					$scope.object = {serverList:response};
+				}
+
+				
+			}, function(error){
+				$scope.errorFilter = "Unable to get data for filters";
+			})
+		}
+		$scope.init();
 
 	}
 })();
