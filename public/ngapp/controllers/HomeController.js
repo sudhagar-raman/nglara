@@ -3,21 +3,16 @@
 	
 	angular.module("leaseWeb").controller("HomeController", HomeController);
 	
-	HomeController.$inject = ['ServersService', '$scope', '$timeout'];
+	HomeController.$inject = ['ServersService', '$scope'];
 	
-	function HomeController(ServersService, $scope, $timeout){
+	function HomeController(ServersService, $scope){
 
-		//var vm = this;
-		//$scope.serverList = [];
 		$scope.request = {};
-		//$scope.object = {};
-		//$scope.progressbar = 'Retreiving data please wait...';
+		$scope.title = 'Home page';
+		$scope.no_data = 'No data found';
 
 		// Initial method to populate the default
 		$scope.init = function(){
-			$scope.title = 'Home page';
-			$scope.no_data = 'No data found';
-
 			//$scope.getServerList();
 			$scope.filterRam();
 			$scope.fliterHdd();
