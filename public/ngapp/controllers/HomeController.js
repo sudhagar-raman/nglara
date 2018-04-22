@@ -13,7 +13,6 @@
 
 		// Initial method to populate the default
 		$scope.init = function(){
-			//$scope.getServerList();
 			$scope.filterRam();
 			$scope.fliterHdd();
 			$scope.filterLocation();
@@ -33,22 +32,25 @@
 			})
 		}
 
-		// Filter data
+		// Display available Rams
 		$scope.filterRam = function(){
 			$scope.optionsList = ["2GB", "4GB","8GB","12GB","16GB","24GB","32GB","48GB", "64GB", "96GB"];
 			
 		}
 
+		// Display Avilable Disk type in UI
 		$scope.fliterHdd = function(){
 			$scope.hdd = ["SAS", "SATA2", "SSD"]
 		}
 
+		// Display available locations in UI
 		$scope.filterLocation = function(){
 			$scope.locations = ["AmsterdamAMS-01", "Washington D.C.WDC-01", "San FranciscoSFO-12",
 							"SingaporeSIN-11", "DallasDAL-10", "FrankfurtFRA-10", "Hong KongHKG-01"
 							]
 		}
 
+		// Get records based on the applied filters
 		$scope.applyFilters = function(requestParams){
 			$scope.progressbar = 'Retreiving data please wait...';
 			$scope.object = {serverList:null};
@@ -66,6 +68,8 @@
 				$scope.errorFilter = "Unable to get data for filters";
 			})
 		}
+
+		// Initializatin method
 		$scope.init();
 
 	}
