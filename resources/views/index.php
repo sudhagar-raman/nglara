@@ -11,7 +11,7 @@
 		<div class="row row-banner">
 			<div class="col-md-12">
 				<div class="col-md-6">
-					<span>Logo</span>
+					<span class="logo">Servers</span>
 				</div>
 			</div>	
 		</div>
