@@ -1,7 +1,8 @@
-<div  ng-controller="HomeController as home">
+<div>
 	<div class="container-fluid">
 		<div class="col-md-12 table-responsive table-data">
-			<h2>Servers</h2>
+			<div class="col-md-4"><h2>Servers</h2></div> 
+			<div class="col-md-8"><span></span></div>
 		    <table class="table">
 		        <tbody>
 		         	<tr>
@@ -18,13 +19,14 @@
 		                    <b>Location</b>
 		           		</td>
 		           	</tr>
-		           	
-		            <tr ng-repeat="item in home.serverList">
+		           	<!-- {{object.serverList}} -->
+		            <tr ng-repeat="item in object.serverList">
 		                <td>{{item.model}}</td>
 		                <td>{{item.ram}}</td>
 		                <td>{{item.hdd}}</td>
 		                <td>{{item.location}}</td>
 		            </tr>
+		            <tr><td colspan="4" class="text-center">{{progressbar}}</td></tr>
 		        </tbody>
 		    </table>	
 		</div>
