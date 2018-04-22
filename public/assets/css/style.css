@@ -100,7 +100,7 @@ img.thumbnail:hover ~ p.team-title{
     cursor: pointer;
 }
 
-.optionlist{
+/*.optionlist{
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
     font-size: 12px;
     z-index: 1000;
@@ -113,7 +113,7 @@ img.thumbnail:hover ~ p.team-title{
     position: absolute;
     top: 100%;
     left: 0;
-}
+}*/
 
 .filterpanel{
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -122,4 +122,18 @@ img.thumbnail:hover ~ p.team-title{
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 4px;
     width: 170%;
+}
+
+.ram-list{
+    padding: 2px;
+    border: solid 0px #ddd;
+}
+
+input[type=checkbox], input[type=radio] {
+    width: 50px !important;
+}
+
+.btn-primary {
+    background-color: #072f48 !important;
+    border-color: #072f48 !important;
 }
