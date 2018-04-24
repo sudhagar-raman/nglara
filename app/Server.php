@@ -31,21 +31,27 @@ class Server extends Model
       $hdd = $params['hdd'] ?? null;
       $ram = $params['ram'] ?? array();
       $location = $params['location'] ?? null;
-
-      $query = Server::orderBy('id', 'asc');
-
-      foreach($ram as $key => $value){
-         $query->orWhere('ram', 'like', $value.'%');
-      }
-
-      if($hdd){
-        $query->where('hdd', 'like', '%' . $params['hdd']);
-      }
       
-      if($location){
-        $query->where('location', $params['location']);
-      }
-  
-      return $query->get();
+      $result = Server::orderBy('id')
+            ->where(function($query) use ($hdd){
+                if($hdd){
+                  $query->where('hdd', 'like', '%' . $hdd);
+                }
+            })
+            ->where(function($query) use ($location){
+                if($location){
+                  $query->where('location', $location);
+                }
+            })
+            ->where(function($query) use ($ram){
+                if(!empty($ram)){
+                 foreach($ram as $key => $value){
+                      $query->orWhere('ram', 'like', $value.'%');
+                  }
+                }
+            })
+            ->get();
+    
+      return $result;
     }
 }
