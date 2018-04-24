@@ -6,7 +6,7 @@
   <link href="<?= asset('assets/css/style.css') ?>" rel="stylesheet">
 </head>
 
-<body ng-app="leaseWeb">
+<body ng-app="leaseWeb" ng-controller="HomeController as home">
 	<div class="container-fluid">
 		<div class="row row-banner">
 			<div class="col-md-12">
@@ -17,7 +17,7 @@
 		</div>
 		<br>
 		<div ng-include="'ngapp/views/layout.html'"></div>
-	</div>
+ 	</div>
 
   <!-- external dependencies -->
   <script src="ngapp/libs/angular/angular.min.js"></script>

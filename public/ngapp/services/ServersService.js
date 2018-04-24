@@ -31,7 +31,6 @@
 		
 		// Hanlde the response before return to the view
 		ServersService.successHanlder = function(response, successCallBack){
-			console.log('response.data', response.data)
 			successCallBack(response.data);
 		}
 

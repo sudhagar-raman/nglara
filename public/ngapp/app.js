@@ -10,7 +10,8 @@
 			when("/home", 
 					{
 						templateUrl: "ngapp/views/home.html", 
-						controller: "HomeController"
+						controller: "HomeController",
+						controllerAs: "vm"
 					}
 				)
 			.otherwise({redirectTo: '/home'});

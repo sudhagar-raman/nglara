@@ -7,70 +7,71 @@
 	
 	function HomeController(ServersService, $scope){
 
-		$scope.request = {};
-		$scope.title = 'Home page';
-		$scope.no_data = 'No data found';
+		var vm = this;
+		vm.request = {};
+		vm.title = 'Home page';
+		vm.no_data = 'No data found';
 
 		// Initial method to populate the default
-		$scope.init = function(){
-			$scope.filterRam();
-			$scope.fliterHdd();
-			$scope.filterLocation();
+		vm.init = function(){
+			vm.filterRam();
+			vm.fliterHdd();
+			vm.filterLocation();
 		}
 
 		// Get all servers
-		$scope.getServerList = function(){
-			$scope.request.location = '';
-			$scope.request.hdd = '';
-			$scope.request.ram = '';
+		vm.getServerList = function(){
+			vm.request.location = '';
+			vm.request.hdd = '';
+			vm.request.ram = '';
 
 			ServersService.getServerList(function(response){
-				$scope.object = {serverList:response};
-				$scope.progressbar = '';
+				vm.object = {serverList:response};
+				vm.progressbar = '';
 			}, function(error){
 				 console.log("Error : Unable to get server list.")
 			})
 		}
 
 		// Display available Rams
-		$scope.filterRam = function(){
-			$scope.optionsList = ["2GB", "4GB","8GB","12GB","16GB","24GB","32GB","48GB", "64GB", "96GB"];
+		vm.filterRam = function(){
+			vm.optionsList = ["2GB", "4GB","8GB","12GB","16GB","24GB","32GB","48GB", "64GB", "96GB", "128GB"];
 			
 		}
 
 		// Display Avilable Disk type in UI
-		$scope.fliterHdd = function(){
-			$scope.hdd = ["SAS", "SATA2", "SSD"]
+		vm.fliterHdd = function(){
+			vm.hdd = ["SAS", "SATA2", "SSD"]
 		}
 
 		// Display available locations in UI
-		$scope.filterLocation = function(){
-			$scope.locations = ["AmsterdamAMS-01", "Washington D.C.WDC-01", "San FranciscoSFO-12",
+		vm.filterLocation = function(){
+			vm.locations = ["AmsterdamAMS-01", "Washington D.C.WDC-01", "San FranciscoSFO-12",
 							"SingaporeSIN-11", "DallasDAL-10", "FrankfurtFRA-10", "Hong KongHKG-01"
 							]
 		}
 
 		// Get records based on the applied filters
-		$scope.applyFilters = function(requestParams){
-			$scope.progressbar = 'Retreiving data please wait...';
-			$scope.object = {serverList:null};
+		vm.applyFilters = function(requestParams){
+			vm.progressbar = 'Retreiving data please wait...';
+			vm.object = {serverList:null};
 
 			ServersService.applyFilters(requestParams, function(response){
 				if(response.length <= 0){
-					$scope.progressbar = $scope.no_data;
+					vm.progressbar = vm.no_data;
 				}else{
-					$scope.progressbar = '';
-					$scope.object = {serverList:response};
+					vm.progressbar = '';
+					vm.object = {serverList:response};
 				}
 
 				
 			}, function(error){
-				$scope.errorFilter = "Unable to get data for filters";
+				vm.errorFilter = "Unable to get data for filters";
 			})
 		}
 
 		// Initializatin method
-		$scope.init();
+		vm.init();
 
 	}
 })();

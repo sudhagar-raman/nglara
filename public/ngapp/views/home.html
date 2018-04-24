@@ -23,13 +23,13 @@
 		           		</td>
 		           	</tr>
 		           	<!-- {{object.serverList}} -->
-		            <tr ng-repeat="item in object.serverList">
+		            <tr ng-repeat="item in home.object.serverList">
 		                <td>{{item.model}}</td>
 		                <td>{{item.ram}}</td>
 		                <td>{{item.hdd}}</td>
 		                <td>{{item.location}}</td>
 		            </tr>
-		            <tr><td colspan="4" class="text-center">{{progressbar}}</td></tr>
+		            <tr><td colspan="4" class="text-center">{{home.progressbar}}</td></tr>
 		        </tbody>
 		    </table>	
 		</div>
